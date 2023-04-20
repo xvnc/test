@@ -5,7 +5,7 @@
 --]]
 
 if not game['Loaded'] then game['Loaded']:Wait() end; repeat wait(.06) until game:GetService('Players').LocalPlayer ~= nil
-local YourLang = "ru" -- Language code that the messages are going to be translated to
+local YourLang = "en" -- Language code that the messages are going to be translated to
 local googlev = isfile'googlev.txt' and readfile'googlev.txt' or ''
 
 function googleConsent(Body) -- Because google really said: "Fuck you."
@@ -228,7 +228,7 @@ function translate(str, to, from)
         }
     }
 
-    local url = executeURL..'?'..stringifyQuery{rpcids = rpcidsTranslate, ['f.sid'] = fsid, bl = bl, hl="ru", _reqid = reqid-10000, rt = 'c'}
+    local url = executeURL..'?'..stringifyQuery{rpcids = rpcidsTranslate, ['f.sid'] = fsid, bl = bl, hl="en", _reqid = reqid-10000, rt = 'c'}
     local body = stringifyQuery{['f.req'] = jsonE(freq)}
     
     local req = got(url, "POST", body)
@@ -276,7 +276,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",
     }
 )
                   
-properties.Text = "[TR] привет:D"
+properties.Text = "[TR] To send messages in a language, say > followed by the target language/language code, e.g.: >ru or >russian. To disable (go back to original language), say >d."
 StarterGui:SetCore("ChatMakeSystemMessage", properties)
 
 function translateFrom(message)
@@ -380,3 +380,5 @@ end)
 
 BindHook['Event']:Connect(function()
     CBar = LP['PlayerGui'].Chat['Frame'].ChatBarParentFrame['Frame'].BoxFrame['Frame'].ChatBar
+    HookChat(CBar)
+end)
