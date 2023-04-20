@@ -226,7 +226,7 @@ local translate, getISOCode do
     function translate(str, to, from)
         reqid+=10000
         from = from and getISOCode(from) or 'auto'
-        to = to and getISOCode(to) or 'en'
+        to = to and getISOCode(to) or 'ru'
 
         local data = {{str, from, to, true}, {nil}}
 
