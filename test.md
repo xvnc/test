@@ -214,7 +214,7 @@ pcall(function()
     function translate(str, to, from)
         reqid = reqid + 10000
         from = from and getISOCode(from) or 'auto'
-        to = to and getISOCode(to) or 'en'
+        to = to and getISOCode(to) or 'ru'
     
         local data = {{str, from, to, true}, {nil}}
     
